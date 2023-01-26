@@ -1,6 +1,5 @@
 package br.com.simulador.irpf;
 
-import br.com.simulador.irpf.exception.DescricaoEmBrancoException;
 import br.com.simulador.irpf.exception.NomeEmBrancoException;
 import org.junit.Before;
 import org.junit.Test;

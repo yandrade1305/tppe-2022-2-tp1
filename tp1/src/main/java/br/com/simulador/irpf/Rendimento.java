@@ -4,8 +4,8 @@ import br.com.simulador.irpf.exception.DescricaoEmBrancoException;
 import br.com.simulador.irpf.exception.ValorRendimentoInvalidoException;
 
 public class Rendimento {
-    private String descricao;
-    private float valor;
+    String descricao;
+     float valor;
 
     public Rendimento(String descricao, float valor) {
         if (descricao != null && descricao.isBlank())
