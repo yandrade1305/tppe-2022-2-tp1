@@ -1,5 +1,7 @@
 package br.com.simulador.irpf;
 
+import br.com.simulador.irpf.constants.ImpostoConstantes;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +66,7 @@ public class SimuladorIRPF {
     public void cadastrarDependente(String nome, LocalDate dataNascimento) {
         Dependente dependente = new Dependente(nome, dataNascimento);
         dependentes.add(dependente);
-        this.valorTotalDeducoes += 189.59f;
+        this.valorTotalDeducoes += ImpostoConstantes.VALOR_IMPOSTO_DEPENDENTE;
     }
 
     public int getNumeroDependentes() {

@@ -1,5 +1,6 @@
 package br.com.simulador.irpf;
 
+import br.com.simulador.irpf.constants.ImpostoConstantes;
 import br.com.simulador.irpf.exception.NomeEmBrancoException;
 
 import java.time.LocalDate;
@@ -9,7 +10,7 @@ public class Dependente extends Deducao {
     private LocalDate dataNascimento;
 
     public Dependente(String nome, LocalDate dataNascimento) {
-        super("Dependente", 189.59f);
+        super("Dependente", ImpostoConstantes.VALOR_IMPOSTO_DEPENDENTE);
         if(nome != null && nome.isBlank())
             throw new NomeEmBrancoException("Não foi possível cadastrar um dependente com nome em branco");
         this.nome = nome;
