@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SimuladorIRPF {
-    private Imposto imposto = new Imposto();
+    public Imposto imposto = new Imposto();
     private float valorTotalRendimentos;
     private float valorTotalDeducoes;
     private List<Rendimento> rendimentos = new ArrayList<Rendimento>();
@@ -47,20 +47,14 @@ public class SimuladorIRPF {
     }
 
     public float calcularAliquotaEfetiva() {
-        float imposto = getImposto();
-        float aliquotaEfetiva = (float) (Math.floor(imposto / this.getTotalRendimentos() * 10000) / 100.0f);
+        float impostoCalculado = imposto.getImposto(getBaseDeCalculo());
+        float aliquotaEfetiva = (float) (Math.floor(impostoCalculado / this.getTotalRendimentos() * 10000) / 100.0f);
         return aliquotaEfetiva;
     }
 
     public float getBaseDeCalculo() {
         float retornoTotal = this.valorTotalRendimentos - this.valorTotalDeducoes;
         return retornoTotal;
-    }
-
-    public float getImposto() {
-        float baseDeCalculo = getBaseDeCalculo();
-
-        return imposto.getImposto(baseDeCalculo);
     }
 
     public void cadastrarDependente(String nome, LocalDate dataNascimento) {
