@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SimuladorIRPF {
-    public Imposto imposto = new Imposto();
     private float valorTotalRendimentos;
     private float valorTotalDeducoes;
     private List<Rendimento> rendimentos = new ArrayList<Rendimento>();
@@ -46,8 +45,13 @@ public class SimuladorIRPF {
         this.valorTotalDeducoes += pensaoAlimenticia.getValor();
     }
 
+    public float getImposto() {
+        return new Imposto(this).computar();
+    }
+
+
     public float calcularAliquotaEfetiva() {
-        float impostoCalculado = imposto.getImposto(getBaseDeCalculo());
+        float impostoCalculado = getImposto();
         float aliquotaEfetiva = (float) (Math.floor(impostoCalculado / this.getTotalRendimentos() * 10000) / 100.0f);
         return aliquotaEfetiva;
     }

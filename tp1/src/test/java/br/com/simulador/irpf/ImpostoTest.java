@@ -64,6 +64,6 @@ public class ImpostoTest {
         for(Object[] x : impostos){
             simulador.cadastrarUmRendimento((String)x[0], (float) x[1]);
         }
-        assertEquals(resultadoImposto, simulador.imposto.getImposto(simulador.getBaseDeCalculo()), 2f);
+        assertEquals(resultadoImposto, simulador.getImposto(), 2f);
     }
 }
